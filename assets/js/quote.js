@@ -13,9 +13,23 @@ $(document).ready(function () {
     });
 
 
-    $('#standart, #premium, #excelium').on('click', function () {
-        document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
-        doCalc();
+    $('#standard, #premium, #excelium').on('click', function () {
+        alert($event.currentTarget);
+        if(document.getElementById("standard").value === "1"){
+            document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
+            alert(document.getElementById('elevPriceUnit').value);
+            doCalc();
+        }
+        else if(document.getElementById("premium").value === "1"){
+            document.getElementById('elevPriceUnit').value = (12345).toFixed(2) + " $";
+            alert(document.getElementById('elevPriceUnit').value);
+            doCalc();
+        }
+        else if(document.getElementById("excelium").value === "1"){
+            document.getElementById('elevPriceUnit').value = (15400).toFixed(2) + " $";
+            alert(document.getElementById('elevPriceUnit').value);
+            doCalc();
+        }
     });
 
     $('#residential, #commercial, #corporate, #hybrid').on('click', function () {
