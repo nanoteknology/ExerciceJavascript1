@@ -94,10 +94,12 @@ $(document).ready(function () {
     };
 
     function setRequiredElevatorsResult(finNumElev) {
-        //if(this.$("#residential").on("click", function())) {
+        if ($('#residential').hasClass('active')){
             $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));
-        //}
-        
+        }
+        if ($('#commercial').hasClass('active')){
+            $("#numElev_2, #numElev_3").val(numElev);
+        }
     };
 
     function setPricesResults(finNumElev, roughTotal, installFee, total) {
@@ -200,7 +202,7 @@ $(document).ready(function () {
     function doCalc() {
         if ($('#residential').hasClass('active') && !negativeValues() && $('#numApp').val() && $('#numFloors').val()) {
             apiCall('residential')
-        } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()  && $('#numPark').val()) {
+        } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()) {
             apiCall('commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
             apiCall('corporate')
