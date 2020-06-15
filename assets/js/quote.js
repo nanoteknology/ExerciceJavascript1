@@ -95,13 +95,13 @@ $(document).ready(function () {
 
     function setRequiredElevatorsResult(finNumElev) {
         //if(this.$("#residential").on("click", function())) {
-            alert(numApp);
             $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));
         //}
         
     };
 
     function setPricesResults(finNumElev, roughTotal, installFee, total) {
+        $("#numElev_2").val(parseFloat(finNumElev));
         $("#elevTotal").val(parseFloat(roughTotal).toFixed(2) + " $");
         $("#installationFee").val(parseFloat(installFee).toFixed(2) + " $");
         $("#total_").val(parseFloat(total).toFixed(2) + " $");
@@ -129,7 +129,11 @@ $(document).ready(function () {
             alert("Please enter a positive number!");
             $('#numApp').val('');
             return true
+        } else if ($('#numFloors').val() < 0) {
 
+            alert("Please enter a positive number!");
+            $('#numFloors').val('');
+            return true
         } else if ($('#numBase').val() < 0) {
 
             alert("Please enter a positive number!");
@@ -199,7 +203,9 @@ $(document).ready(function () {
         } else if ($('#commercial').hasClass('active') && !negativeValues() && $('#numElev').val()  && $('#numPark').val()) {
             apiCall('commercial')
         } else if ($('#corporate').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
-            apiCall('commercial')
+            apiCall('corporate')
+        } else if ($('#hybrid').hasClass('active') && !negativeValues() && $('#numFloors').val() && $('#numBase').val() && $('#maxOcc').val()) {
+            apiCall('hybrid')
         } else {
             emptyElevatorsNumberAndPricesFields();
         };
