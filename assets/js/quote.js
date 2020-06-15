@@ -14,18 +14,19 @@ $(document).ready(function () {
 
 
     $('#standard, #premium, #excelium').on('click', function () {
-        alert($event.currentTarget);
-        if(document.getElementById("standard").value === "1"){
+       
+        //alert($event.currentTarget);
+        if ($('#standard').is(':checked')) {
             document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
             alert(document.getElementById('elevPriceUnit').value);
             doCalc();
         }
-        else if(document.getElementById("premium").value === "1"){
+        else if ($('#premium').is(':checked')) {
             document.getElementById('elevPriceUnit').value = (12345).toFixed(2) + " $";
             alert(document.getElementById('elevPriceUnit').value);
             doCalc();
         }
-        else if(document.getElementById("excelium").value === "1"){
+        else if ($('#excelium').is(':checked')) {
             document.getElementById('elevPriceUnit').value = (15400).toFixed(2) + " $";
             alert(document.getElementById('elevPriceUnit').value);
             doCalc();
