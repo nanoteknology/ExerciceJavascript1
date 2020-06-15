@@ -14,21 +14,16 @@ $(document).ready(function () {
 
 
     $('#standard, #premium, #excelium').on('click', function () {
-       
-        //alert($event.currentTarget);
         if ($('#standard').is(':checked')) {
             document.getElementById('elevPriceUnit').value = (7565).toFixed(2) + " $";
-            alert(document.getElementById('elevPriceUnit').value);
             doCalc();
         }
         else if ($('#premium').is(':checked')) {
             document.getElementById('elevPriceUnit').value = (12345).toFixed(2) + " $";
-            alert(document.getElementById('elevPriceUnit').value);
             doCalc();
         }
         else if ($('#excelium').is(':checked')) {
             document.getElementById('elevPriceUnit').value = (15400).toFixed(2) + " $";
-            alert(document.getElementById('elevPriceUnit').value);
             doCalc();
         }
     });
@@ -90,6 +85,7 @@ $(document).ready(function () {
     };
 
     function GetInfos() {
+        getInfoNumApp();
         getInfoNumFloors();
         getInfoNumBase();
         getInfoNumElev();
@@ -98,7 +94,11 @@ $(document).ready(function () {
     };
 
     function setRequiredElevatorsResult(finNumElev) {
-        $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));
+        //if(this.$("#residential").on("click", function())) {
+            alert(numApp);
+            $("#numElev_2, #numElev_3").val(parseFloat(finNumElev));
+        //}
+        
     };
 
     function setPricesResults(finNumElev, roughTotal, installFee, total) {
