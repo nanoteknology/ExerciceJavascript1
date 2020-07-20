@@ -67,7 +67,7 @@ $(document).ready(function () {
 
         } else if ($('#premium').is(':checked')) {
             prodRange.type = "premium";
-            prodRange.price = parseFloat(123456);
+            prodRange.price = parseFloat(12345);
             prodRange.installationFeePercentage = 0.13;
             return prodRange;
 
@@ -85,9 +85,9 @@ $(document).ready(function () {
     };
 
     function GetInfos() {
-        getInfoNumApp();
         getInfoNumFloors();
         getInfoNumBase();
+        getInfoNumApp();
         getInfoNumElev();
         getInfoMaxOcc();
         getProdRange();
@@ -111,6 +111,7 @@ $(document).ready(function () {
 
     function emptyElevatorsNumberAndPricesFields() {
         $('#numElev_3').val('');
+        $('#numElev_2').val('');
         $('.priceField').val('');
     };
 
@@ -119,6 +120,7 @@ $(document).ready(function () {
             numberApp: numApp,
             numberFloors: numFloors,
             numberBase: numBase,
+            numberElev: numElev,
             maximumOcc: maxOcc,
             productRange: prodRange,
             projectType: projectType
@@ -171,6 +173,7 @@ $(document).ready(function () {
             alert("Please enter a positive number!");
             $('#maxOcc').val('');
             return true
+            
         } else {
             return false
         }
